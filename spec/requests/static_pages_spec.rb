@@ -1,55 +1,38 @@
 require 'rails_helper'
 
 RSpec.describe "StaticPages", type: :request do
-  describe "GET /static_pages" do
-    let(:title) { "Ruby on Rails Tutorial Sample App | "  }
+  subject { page }
+
+  describe "static_pages" do
+    let(:title) { "Ruby on Rails Tutorial Sample App"  }
 
     describe "Home page" do
-      before { visit '/static_pages/home' }
+      before { visit root_path }
 
-      it "should have the content 'Sample App'" do
-        expect(page).to have_content('Sample App')
-      end
-
-      it "should have the title 'Home'" do
-        expect(page).to have_title(title + "Home")
-      end
+      it { should have_content('Sample App') }
+      it { should have_title(title) }
+      it { should_not have_title('Home') }
     end
 
     describe "Help page" do
-      before { visit '/static_pages/help' }
+      before { visit help_path }
 
-      it "should have the content 'Help'" do
-        expect(page).to have_content('Help')
-      end
-
-      it "should have the title 'Help'" do
-        expect(page).to have_title(title + "Help")
-      end
+      it { should have_content('Help') }
+      it { should have_title(title + ' | Help') }
     end
 
     describe "About page" do
-      before { visit '/static_pages/about' }
+      before { visit about_path }
 
-      it "should have the content 'About Us'" do
-        expect(page).to have_content('About Us')
-      end
-
-      it "should have the title 'About Us'" do
-        expect(page).to have_title(title + "About Us")
-      end
+      it { should have_content('About Us') }
+      it { should have_title(title + ' | About Us') }
     end
 
     describe "Contact page" do
-      before { visit '/static_pages/contact' }
+      before { visit contact_path }
 
-      it "should have the content 'Excercise'" do
-        expect(page).to have_content('Excercise')
-      end
-
-      it "should have the title 'Contact'" do
-        expect(page).to have_title(title + "Contact")
-      end
+      it { should have_content('Excercise') }
+      it { should have_title(title + ' | Contact') }
     end
   end
 end
