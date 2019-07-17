@@ -18,5 +18,6 @@ module Blog
     config.time_zone = 'Moscow'
     I18n.config.available_locales = :ru, :en
     I18n.config.default_locale = :ru
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
   end
 end
