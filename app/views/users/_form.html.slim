@@ -1,0 +1,20 @@
+- provide(:title, 'Sign up')
+h1 Sign up
+
+.center
+  = form_for(user) do |f|
+    = render 'shared/error_messages', resource: @user
+
+    p= f.label :name
+    = f.text_field :name
+
+    p= f.label :email
+    = f.text_field :email
+
+    p= f.label :password
+    = f.password_field :password
+
+    p= f.label :password_confirmation, "Confirmation"
+    div style='margin-bottom: 10px'= f.password_field :password_confirmation
+
+    p= f.submit "Create my account", class: "btn btn-large btn-primary"
