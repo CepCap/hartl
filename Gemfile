@@ -18,6 +18,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'slim'
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'bcrypt'
 
 group :development, :test do
   gem 'rspec-rails'
